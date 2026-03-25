@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "bashdb",
+      "request": "launch",
+      "name": "Bash-Debug (simplest configuration)",
+      "cwd": "${workspaceFolder}",
+      "program": "${file}",
+      "terminalKind": "integrated"
+    }
+  ]
+}

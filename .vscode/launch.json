@@ -1,0 +1,20 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "bashdb",
+      "request": "launch",
+      "name": "Bash-Debug (WSL)",
+      "cwd": "${workspaceFolder}",
+      "program": "${file}",
+      "terminalKind": "integrated",
+      "pathMappings": [
+        {
+          "useWSL": true,
+          "localRoot": "${workspaceFolder}",
+          "remoteRoot": "${workspaceFolder}"
+        }
+      ]
+    }
+  ]
+}
