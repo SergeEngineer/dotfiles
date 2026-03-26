@@ -49,16 +49,24 @@ run_module() {
 }
  
 # Install a pacman package only if not already installed (idempotent)
+# local pkg="$1" — Stores the package name argument in a local variable for easier reference
+# pacman -Qi "$pkg" &>/dev/null — Checks if package is already installed
+# &>/dev/null — Suppresses all output (both stdout and stderr) from the command (silent check)
+# -Q means "query local packages"
+# -i means "detailed info"
+# -- needed means "don't reinstall if already installed"
 pacman_install() {
-  local pkg="$1"
-  if pacman -Qi "$pkg" &>/dev/null; then
-    info "$pkg — already installed, skipping"
+  local pkgs=("$@")
+
+  info "Installing: ${pkgs[*]}"
+
+  if [[ $EUID -eq 0 ]]; then
+    pacman -S --noconfirm --needed "${pkgs[@]}"
   else
-    info "Installing $pkg..."
-    sudo pacman -S --noconfirm --needed "$pkg"
+    sudo pacman -S --noconfirm --needed "${pkgs[@]}"
   fi
 }
- 
+
 # Install an AUR package via yay only if not already installed (idempotent)
 aur_install() {
   local pkg="$1"

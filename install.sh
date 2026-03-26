@@ -48,3 +48,8 @@ echo
 if [[ "$SKIP_SYSTEM" == false ]]; then
   run_module "system"   "$DOTFILES_DIR/modules/system.sh"
 fi
+
+# 2. Packages (pacman + yay AUR)
+if [[ "$SKIP_PACKAGES" == false ]]; then
+  run_module "packages" "$DOTFILES_DIR/modules/packages.sh"
+fi
