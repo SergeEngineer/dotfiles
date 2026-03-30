@@ -53,3 +53,22 @@ fi
 if [[ "$SKIP_PACKAGES" == false ]]; then
   run_module "packages" "$DOTFILES_DIR/modules/packages.sh"
 fi
+
+# 3. Enable/start systemd services
+if [[ "$SKIP_SERVICES" == false ]]; then
+  run_module "services" "$DOTFILES_DIR/modules/services.sh"
+fi
+
+# 4. Symlink all config files into $HOME
+run_module "symlinks"   "$DOTFILES_DIR/modules/symlinks.sh"
+
+# 5. Hyprland WM (opt-in — pass --with-hyprland)
+if [[ "$WITH_HYPRLAND" == true ]]; then
+  run_module "hyprland" "$DOTFILES_DIR/modules/hyprland.sh"
+fi
+
+print_header "All done!"
+log "Restart your shell or run: source ~/.bashrc"
+if [[ "$WITH_HYPRLAND" == true ]]; then
+  log "Drop a wallpaper into ~/.config/wallpapers/wallpaper.jpg then run: Hyprland"
+fi

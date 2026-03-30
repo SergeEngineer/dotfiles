@@ -1,0 +1,96 @@
+/* ~/.config/swaync/style.css — Catppuccin Mocha */
+@define-color base     #1e1e2e;
+@define-color surface0 #313244;
+@define-color surface1 #45475a;
+@define-color text     #cdd6f4;
+@define-color subtext0 #a6adc8;
+@define-color blue     #89b4fa;
+@define-color mauve    #cba6f7;
+@define-color red      #f38ba8;
+@define-color green    #a6e3a1;
+@define-color peach    #fab387;
+@define-color yellow   #f9e2af;
+
+* {
+  font-family: "JetBrainsMono Nerd Font", monospace;
+  font-size: 13px;
+}
+
+.control-center {
+  background-color: alpha(@base, 0.96);
+  border-radius: 12px;
+  border: 1px solid @surface1;
+  padding: 8px;
+}
+
+.notification-row:focus,
+.notification-row:hover {
+  opacity: 0.9;
+}
+
+.notification {
+  background-color: @surface0;
+  border-radius: 10px;
+  border: 1px solid @surface1;
+  margin: 6px;
+  padding: 0;
+}
+
+.notification-content {
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.notification-default-action {
+  border-radius: 10px;
+}
+
+.summary {
+  font-size: 13px;
+  font-weight: bold;
+  color: @text;
+}
+
+.body {
+  font-size: 12px;
+  color: @subtext0;
+}
+
+.time {
+  font-size: 11px;
+  color: @subtext0;
+}
+
+.close-button {
+  background-color: @red;
+  color: @base;
+  border-radius: 50%;
+  margin: 4px;
+}
+
+.widget-title > label {
+  font-size: 14px;
+  font-weight: bold;
+  color: @text;
+  margin: 4px 8px;
+}
+
+.widget-dnd > switch {
+  border-radius: 8px;
+}
+
+.widget-dnd > switch:checked {
+  background-color: @blue;
+}
+
+.urgent {
+  border-left: 3px solid @red;
+}
+
+.low {
+  border-left: 3px solid @blue;
+}
+
+.normal {
+  border-left: 3px solid @mauve;
+}

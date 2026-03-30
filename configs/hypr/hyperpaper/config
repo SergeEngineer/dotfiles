@@ -1,0 +1,21 @@
+# ~/.config/hyperpaper/config
+# Managed by dotfiles — edit at: dotfiles/configs/hypr/hyperpaper/config
+# Reference: https://github.com/hyprwm/hyperpaper
+#
+# Format: monitor = <monitor_name>,<wallpaper_path>
+# Find monitor names with: hyprctl monitors
+#
+# Note: if using swww (animated wallpapers), you don't need hyperpaper.
+# Uncomment the exec-once in autostart.conf and comment out swww lines.
+
+preload = ~/.config/wallpapers/wallpaper.jpg
+
+# Single monitor
+wallpaper = ,~/.config/wallpapers/wallpaper.jpg
+
+# Multi-monitor example (uncomment and adapt):
+# wallpaper = DP-1,~/.config/wallpapers/wallpaper-main.jpg
+# wallpaper = HDMI-A-1,~/.config/wallpapers/wallpaper-secondary.jpg
+
+ipc = off
+splash = false

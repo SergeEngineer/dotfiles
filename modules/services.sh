@@ -21,13 +21,26 @@ enable_service() {
   fi
 }
 
-# ── System-level services ─────────────────────────────────────────────────────
+# ── System-level (core) services ─────────────────────────────────────────────────────
 enable_service "sshd"             # SSH daemon
 enable_service "systemd-timesyncd" # NTP time sync
+enable_service "fstrim.timer"
+
+# ── Networking ───────────────────────────────────────
+enable_service "NetworkManager"
+
+# ── Hardware ─────────────────────────────────────────
+enable_service "bluetooth"
+
+# ── Security ─────────────────────────────────────────
+enable_service "ufw"
 
 # ── Add more services below as you need them ──────────────────────────────────
 # enable_service "docker"
 # enable_service "bluetooth"
 # enable_service "cups"           # printing
+
+# ── Maintenance ──────────────────────────────────────
+# enable_service "paccache.timer"
 
 log "Services configured"
