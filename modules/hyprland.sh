@@ -121,10 +121,13 @@ HYPR_PACMAN_PKGS=(
   swayidle               # idle daemon (dim/lock after inactivity)
 )
 
+filtered_hypr=()
 for pkg in "${HYPR_PACMAN_PKGS[@]}"; do
   [[ "$pkg" == \#* ]] && continue
-  pacman_install "$pkg"
+  filtered_hypr+=("$pkg")
 done
+pacman_install "${filtered_hypr[@]}"
+
 
 # ── 2. AUR packages ───────────────────────────────────────────────────────────
 print_header "Installing AUR packages for Hyprland"
@@ -140,10 +143,13 @@ HYPR_AUR_PKGS=(
   papirus-icon-theme     # clean icon theme
 )
 
+filtered_hypr_aur=()
 for pkg in "${HYPR_AUR_PKGS[@]}"; do
   [[ "$pkg" == \#* ]] && continue
-  aur_install "$pkg"
+  filtered_hypr_aur+=("$pkg")
 done
+aur_install "${filtered_hypr_aur[@]}"
+
 
 # ── 3. Enable required services ───────────────────────────────────────────────
 print_header "Enabling services for Hyprland"
